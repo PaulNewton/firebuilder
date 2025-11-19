@@ -57,6 +57,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        prometheus: {
+          fire: "hsl(var(--prometheus-fire))",
+          "fire-light": "hsl(var(--prometheus-fire-light))",
+          flame: "hsl(var(--prometheus-flame))",
+          ember: "hsl(var(--prometheus-ember))",
+          smoke: "hsl(var(--prometheus-smoke))",
+          night: "hsl(var(--prometheus-night))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
