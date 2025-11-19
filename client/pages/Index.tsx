@@ -935,7 +935,7 @@ function PropertyEditor({
       {section.type === "text" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2">Content</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Content</label>
             <textarea
               value={section.config.content}
               onChange={(e) => handleChange("content", e.target.value)}
