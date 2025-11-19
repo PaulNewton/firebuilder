@@ -919,7 +919,7 @@ function PropertyEditor({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
               Button Color
             </label>
             <input
