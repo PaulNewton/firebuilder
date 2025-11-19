@@ -407,6 +407,15 @@ export default function Index() {
             <Upload className="w-4 h-4 mr-2" />
             Import
           </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowGitHubDeploy(true)}
+            className="border-prometheus-fire/30 hover:bg-prometheus-fire/10"
+          >
+            <Github className="w-4 h-4 mr-2" />
+            Deploy
+          </Button>
         </div>
       </header>
 
