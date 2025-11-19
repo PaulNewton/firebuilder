@@ -511,8 +511,12 @@ export default function Index() {
         )}
 
         {/* Center - Canvas */}
-        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-prometheus-night to-prometheus-smoke/50">
-          <div ref={canvasRef} className="max-w-6xl mx-auto">
+        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-prometheus-night via-prometheus-night to-prometheus-smoke/30 relative">
+          {/* Subtle glow background */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-prometheus-fire rounded-full blur-3xl" />
+          </div>
+          <div ref={canvasRef} className="max-w-6xl mx-auto relative z-10">
             {showPreview ? (
               <div className="bg-prometheus-night">
                 {page.sections.map((section) => (
