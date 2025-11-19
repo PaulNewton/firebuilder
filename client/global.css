@@ -126,89 +126,15 @@
   }
 }
 
-@keyframes prometheus-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
-  }
-}
-
-@keyframes prometheus-flicker {
-  0%, 100% {
-    opacity: 1;
-  }
-  14% {
-    opacity: 0.95;
-  }
-  15% {
-    opacity: 0.9;
-  }
-  49% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.98;
-  }
-}
-
 @keyframes prometheus-pulse {
   0%, 100% {
-    opacity: 0.8;
+    opacity: 0.9;
   }
   50% {
     opacity: 1;
   }
-}
-
-.prometheus-glow {
-  animation: prometheus-glow 3s ease-in-out infinite;
-}
-
-.prometheus-flicker {
-  animation: prometheus-flicker 3s ease-in-out infinite;
 }
 
 .prometheus-pulse {
-  animation: prometheus-pulse 2s ease-in-out infinite;
-}
-
-/* Prometheus header glow effect */
-header {
-  position: relative;
-  overflow: hidden;
-}
-
-header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
-  pointer-events: none;
-  animation: prometheus-pulse 8s ease-in-out infinite;
-}
-
-/* Fire effect on buttons */
-@keyframes fire-spread {
-  0% {
-    transform: scaleX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleX(1);
-    opacity: 0;
-  }
-}
-
-button[class*="bg-prometheus-fire"]::before,
-button[class*="hover:bg-prometheus-fire"]::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  animation: fire-spread 1s ease-in-out;
+  animation: prometheus-pulse 3s ease-in-out infinite;
 }
