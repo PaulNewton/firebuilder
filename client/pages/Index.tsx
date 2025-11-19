@@ -944,7 +944,7 @@ function PropertyEditor({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">Font Size</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Font Size</label>
             <input
               type="number"
               value={section.config.fontSize}
