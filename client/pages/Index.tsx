@@ -824,7 +824,7 @@ function PropertyEditor({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">Subtitle</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Subtitle</label>
             <input
               type="text"
               value={section.config.subtitle}
