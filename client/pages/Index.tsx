@@ -631,6 +631,13 @@ export default function Index() {
         onGenerateSection={handleLLMGenerateSection}
         currentSectionType={selectedSection?.type}
       />
+
+      {/* GitHub Deploy */}
+      <GitHubDeploy
+        open={showGitHubDeploy}
+        onClose={() => setShowGitHubDeploy(false)}
+        pageData={page}
+      />
     </div>
   );
 }
