@@ -372,6 +372,15 @@ export default function Index() {
           <Button
             variant="outline"
             size="sm"
+            onClick={() => setShowLLMChat(true)}
+            className="border-prometheus-flame/50 hover:bg-prometheus-flame/10"
+          >
+            <MessageCircle className="w-4 h-4 mr-2" />
+            AI Assistant
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
             onClick={() => setShowPreview(!showPreview)}
             className="border-prometheus-fire/30 hover:bg-prometheus-fire/10"
           >
