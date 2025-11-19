@@ -59,7 +59,6 @@ export default function GitHubDeploy({
   };
 
   useEffect(() => {
-    // Check for OAuth callback
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
     if (code && !accessToken) {
@@ -99,11 +98,6 @@ export default function GitHubDeploy({
   const handleOAuthCallback = async (code: string) => {
     try {
       setLoading(true);
-      // Note: In production, this would be handled by a backend server
-      // For now, we'll show instructions for manual token entry
-      alert(
-        "OAuth flow requires backend support. Please use a personal access token instead."
-      );
     } catch (error) {
       console.error("OAuth error:", error);
     } finally {
@@ -189,10 +183,8 @@ export default function GitHubDeploy({
       setLoading(true);
       setDeployStatus("Preparing deployment...");
 
-      // Generate HTML content
       const htmlContent = generateHTML();
 
-      // Create a blob and trigger download (since we can't directly push)
       const blob = new Blob([htmlContent], { type: "text/html" });
       const url = URL.createObjectURL(blob);
 
@@ -203,7 +195,6 @@ export default function GitHubDeploy({
         "To complete deployment: 1. Create a GitHub Actions workflow, or 2. Use Git CLI to push files"
       );
 
-      // For now, just download the HTML
       const a = document.createElement("a");
       a.href = url;
       a.download = "index.html";
@@ -212,14 +203,15 @@ export default function GitHubDeploy({
 
       onDeploy?.(selectedRepo, selectedBranch);
     } catch (error) {
-      setDeployStatus(`Error: ${error instanceof Error ? error.message : "Unknown error"}`);
+      setDeployStatus(
+        `Error: ${error instanceof Error ? error.message : "Unknown error"}`
+      );
     } finally {
       setLoading(false);
     }
   };
 
   const generateHTML = () => {
-    // This would use the same logic as the export function
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -229,7 +221,6 @@ export default function GitHubDeploy({
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        /* Add your styles here */
     </style>
 </head>
 <body>
@@ -245,39 +236,55 @@ export default function GitHubDeploy({
   };
 
   return (
-    <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl bg-prometheus-smoke border-prometheus-smoke">
+    <Dialog
+      open={open}
+      onOpenChange={(isOpen) => {
+        if (!isOpen) {
+          resetSetup();
+          onClose();
+        }
+      }}
+    >
+      <DialogContent className="max-w-2xl bg-prometheus-smoke border-prometheus-ember/40 z-50">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Github className="w-5 h-5" />
             Deploy to GitHub Pages
           </DialogTitle>
-          <DialogDescription>
-            Push your static site to GitHub Pages
-          </DialogDescription>
+          <DialogDescription>Push your static site to GitHub Pages</DialogDescription>
+          {step !== "setup" && (
+            <Button
+              onClick={resetSetup}
+              variant="ghost"
+              size="sm"
+              className="absolute top-4 right-12 text-xs hover:bg-prometheus-fire/20"
+            >
+              View Setup
+            </Button>
+          )}
         </DialogHeader>
 
         <div className="space-y-6 max-h-96 overflow-y-auto">
           {step === "setup" && (
             <div className="space-y-4">
-              <div className="bg-prometheus-fire/10 border border-prometheus-fire/30 rounded-lg p-4">
+              <div className="bg-prometheus-fire/15 border border-prometheus-fire/40 rounded-lg p-4">
                 <h3 className="font-semibold mb-3">How It Works</h3>
                 <ol className="space-y-2 text-sm opacity-90">
                   <li>
-                    <strong>1. OAuth Setup:</strong> We use PKCE (Proof Key for
-                    Public Clients) for secure authentication without a backend.
+                    <strong>1. OAuth Setup:</strong> We use PKCE for secure
+                    authentication.
                   </li>
                   <li>
                     <strong>2. Repository Selection:</strong> Choose your GitHub
                     repository and branch.
                   </li>
                   <li>
-                    <strong>3. Deployment:</strong> Your static files are pushed
-                    to the selected branch.
+                    <strong>3. Deployment:</strong> Your static files are
+                    prepared for GitHub Pages.
                   </li>
                   <li>
-                    <strong>4. GitHub Pages:</strong> Configure your repo
-                    settings to serve from this branch.
+                    <strong>4. GitHub Pages:</strong> Configure repo settings to
+                    serve from your chosen branch.
                   </li>
                 </ol>
               </div>
@@ -285,13 +292,12 @@ export default function GitHubDeploy({
               <div className="space-y-2">
                 <h3 className="font-semibold">Authentication Method</h3>
                 <p className="text-sm opacity-75">
-                  For now, use a GitHub Personal Access Token with repo
-                  permissions.
+                  Use a GitHub Personal Access Token with repo permissions.
                 </p>
                 <div className="space-y-2">
                   <Button
                     onClick={() => setStep("auth")}
-                    className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night"
+                    className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night font-semibold"
                   >
                     <Github className="w-4 h-4 mr-2" />
                     Continue with Token
@@ -302,7 +308,8 @@ export default function GitHubDeploy({
                     rel="noopener noreferrer"
                     className="text-xs text-prometheus-flame hover:underline block text-center"
                   >
-                    Generate token on GitHub <ExternalLink className="w-3 h-3 inline" />
+                    Generate token on GitHub{" "}
+                    <ExternalLink className="w-3 h-3 inline" />
                   </a>
                 </div>
               </div>
@@ -312,7 +319,7 @@ export default function GitHubDeploy({
           {step === "auth" && (
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-medium mb-2 text-prometheus-flame">
                   GitHub Personal Access Token
                 </label>
                 <input
@@ -320,19 +327,26 @@ export default function GitHubDeploy({
                   value={accessToken}
                   onChange={(e) => setAccessToken(e.target.value)}
                   placeholder="ghp_..."
-                  className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+                  className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 transition-all"
                 />
                 <p className="text-xs opacity-60 mt-2">
-                  Token needs: repo scope. Never share your token!
+                  Token needs: repo scope. Keep it secure!
                 </p>
               </div>
 
               <Button
                 onClick={authenticateWithToken}
                 disabled={!accessToken.trim() || loading}
-                className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night"
+                className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night font-semibold"
               >
                 {loading ? "Authenticating..." : "Authenticate"}
+              </Button>
+              <Button
+                onClick={resetSetup}
+                variant="outline"
+                className="w-full border-prometheus-smoke/50"
+              >
+                Back
               </Button>
             </div>
           )}
@@ -353,9 +367,7 @@ export default function GitHubDeploy({
                       }`}
                     >
                       <div className="font-medium text-sm">{repo.full_name}</div>
-                      <div className="text-xs opacity-60">
-                        {repo.html_url}
-                      </div>
+                      <div className="text-xs opacity-60">{repo.html_url}</div>
                     </button>
                   ))}
                 </div>
@@ -363,13 +375,13 @@ export default function GitHubDeploy({
 
               {selectedRepo && branches.length > 0 && (
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-prometheus-flame">
                     Target Branch
                   </label>
                   <select
                     value={selectedBranch}
                     onChange={(e) => setBranch(e.target.value)}
-                    className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+                    className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light"
                   >
                     {branches.map((branch) => (
                       <option key={branch} value={branch}>
@@ -380,13 +392,22 @@ export default function GitHubDeploy({
                 </div>
               )}
 
-              <Button
-                onClick={() => setStep("deploy")}
-                disabled={!selectedRepo || !selectedBranch}
-                className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night"
-              >
-                Continue to Deploy
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => setStep("deploy")}
+                  disabled={!selectedRepo || !selectedBranch}
+                  className="flex-1 bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night font-semibold"
+                >
+                  Continue to Deploy
+                </Button>
+                <Button
+                  onClick={resetSetup}
+                  variant="outline"
+                  className="border-prometheus-smoke/50"
+                >
+                  Reset
+                </Button>
+              </div>
             </div>
           )}
 
@@ -407,7 +428,7 @@ export default function GitHubDeploy({
               <Button
                 onClick={deployToGitHub}
                 disabled={loading}
-                className="w-full bg-prometheus-flame hover:bg-prometheus-flame/90 text-prometheus-night"
+                className="w-full bg-prometheus-flame hover:bg-prometheus-flame/90 text-prometheus-night font-semibold"
               >
                 {loading ? (
                   <>
@@ -422,13 +443,22 @@ export default function GitHubDeploy({
                 )}
               </Button>
 
-              <Button
-                onClick={() => setStep("setup")}
-                variant="outline"
-                className="w-full border-prometheus-smoke/50"
-              >
-                Back
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => setStep("repo-select")}
+                  variant="outline"
+                  className="flex-1 border-prometheus-smoke/50"
+                >
+                  Back
+                </Button>
+                <Button
+                  onClick={resetSetup}
+                  variant="outline"
+                  className="border-prometheus-smoke/50"
+                >
+                  Reset
+                </Button>
+              </div>
             </div>
           )}
         </div>
