@@ -546,8 +546,10 @@ export default function Index() {
 
         {/* Right Panel - Properties */}
         {!showPreview && selectedSection && (
-          <div className="w-80 border-l border-prometheus-smoke bg-prometheus-smoke/20 overflow-y-auto p-4">
-            <h2 className="text-lg font-semibold mb-4">Properties</h2>
+          <div className="w-80 border-l border-prometheus-smoke/50 bg-gradient-to-b from-prometheus-smoke/30 to-prometheus-smoke/10 overflow-y-auto p-4">
+            <h2 className="text-lg font-semibold mb-4 bg-gradient-to-r from-prometheus-flame to-prometheus-fire bg-clip-text text-transparent">
+              Properties
+            </h2>
             <PropertyEditor
               section={selectedSection}
               onChange={(config) =>
