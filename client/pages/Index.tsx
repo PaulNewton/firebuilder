@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LLMChat from "@/components/LLMChat";
+import GitHubDeploy from "@/components/GitHubDeploy";
 
 interface Section {
   id: string;
