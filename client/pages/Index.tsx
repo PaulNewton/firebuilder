@@ -967,7 +967,7 @@ function PropertyEditor({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">Images</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Images</label>
             <div className="space-y-2">
               {section.config.images.map((img: string, i: number) => (
                 <input
