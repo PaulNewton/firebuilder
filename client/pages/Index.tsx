@@ -815,7 +815,7 @@ function PropertyEditor({
       {section.type === "hero" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
             <input
               type="text"
               value={section.config.title}
@@ -849,7 +849,7 @@ function PropertyEditor({
       {section.type === "features" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
             <input
               type="text"
               value={section.config.title}
@@ -899,7 +899,7 @@ function PropertyEditor({
       {section.type === "cta" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
             <input
               type="text"
               value={section.config.title}
@@ -958,7 +958,7 @@ function PropertyEditor({
       {section.type === "gallery" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
             <input
               type="text"
               value={section.config.title}
