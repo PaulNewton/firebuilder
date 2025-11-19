@@ -131,6 +131,7 @@ export default function Index() {
   const [showPreview, setShowPreview] = useState(false);
   const [showLLMChat, setShowLLMChat] = useState(false);
   const [showGitHubDeploy, setShowGitHubDeploy] = useState(false);
+  const [draggedSectionId, setDraggedSectionId] = useState<string | null>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
 
   // Load from localStorage on mount
@@ -206,12 +207,38 @@ export default function Index() {
   };
 
   const updateSectionConfig = (id: string, config: Record<string, any>) => {
-    setPage({
+    const updatedPage = {
       ...page,
       sections: page.sections.map((s) =>
-        s.id === id ? { ...s, config } : s
+        s.id === id ? { ...s, config: { ...config } } : s
       ),
-    });
+    };
+    setPage(updatedPage);
+  };
+
+  const handleDragStart = (id: string, e: React.DragEvent) => {
+    e.dataTransfer.effectAllowed = 'move';
+    setDraggedSectionId(id);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (targetId: string, e: React.DragEvent) => {
+    e.preventDefault();
+    if (!draggedSectionId || draggedSectionId === targetId) return;
+
+    const draggedIndex = page.sections.findIndex((s) => s.id === draggedSectionId);
+    const targetIndex = page.sections.findIndex((s) => s.id === targetId);
+
+    const newSections = [...page.sections];
+    const [draggedSection] = newSections.splice(draggedIndex, 1);
+    newSections.splice(targetIndex, 0, draggedSection);
+
+    setPage({ ...page, sections: newSections });
+    setDraggedSectionId(null);
   };
 
   const exportHTML = () => {
@@ -365,12 +392,12 @@ export default function Index() {
   return (
     <div className="h-screen bg-prometheus-night text-prometheus-fire-light flex flex-col">
       {/* Header */}
-      <header className="border-b border-prometheus-smoke bg-gradient-to-r from-prometheus-smoke/40 via-prometheus-smoke/20 to-prometheus-smoke/40 px-6 py-4 flex items-center justify-between relative overflow-hidden">
+      <header className="border-b border-prometheus-ember/40 bg-prometheus-smoke/15 px-6 py-4 flex items-center justify-between relative overflow-hidden">
         <div className="flex items-center gap-3 relative z-10">
-          <div className="text-3xl font-bold bg-gradient-to-r from-prometheus-flame via-prometheus-fire to-prometheus-fire-light bg-clip-text text-transparent animate-pulse">
+          <div className="text-3xl font-bold bg-gradient-to-r from-prometheus-fire to-prometheus-flame bg-clip-text text-transparent">
             🔥 Prometheus Builder
           </div>
-          <span className="text-xs text-prometheus-smoke opacity-60 px-2 py-1 rounded-full bg-prometheus-fire/10 border border-prometheus-fire/20">
+          <span className="text-xs text-prometheus-fire-light opacity-70 px-2 py-1 rounded-full bg-prometheus-fire/20 border border-prometheus-fire/40">
             Offline-First
           </span>
         </div>
@@ -427,15 +454,15 @@ export default function Index() {
       <div className="flex-1 flex overflow-hidden">
         {/* Left Panel - Sections List */}
         {!showPreview && (
-          <div className="w-64 border-r border-prometheus-smoke/50 bg-gradient-to-b from-prometheus-smoke/30 to-prometheus-smoke/10 overflow-y-auto p-4 flex flex-col">
+          <div className="w-64 border-r border-prometheus-ember/30 bg-prometheus-smoke/10 overflow-y-auto p-4 flex flex-col">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold bg-gradient-to-r from-prometheus-flame to-prometheus-fire bg-clip-text text-transparent">
+              <h2 className="text-lg font-semibold text-prometheus-flame">
                 Sections
               </h2>
               <Button
                 size="sm"
                 onClick={() => setShowAddSection(true)}
-                className="bg-gradient-to-r from-prometheus-fire to-prometheus-flame hover:from-prometheus-fire/90 hover:to-prometheus-flame/90 text-prometheus-night font-semibold shadow-lg shadow-prometheus-fire/30"
+                className="bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night font-semibold"
               >
                 <Plus className="w-4 h-4" />
               </Button>
@@ -445,18 +472,28 @@ export default function Index() {
               {page.sections.map((section, index) => (
                 <div
                   key={section.id}
-                  onClick={() => setSelectedSectionId(section.id)}
-                  className={`p-3 rounded-lg cursor-pointer transition-all duration-300 transform ${
+                  draggable
+                  onDragStart={(e) => handleDragStart(section.id, e)}
+                  onDragOver={handleDragOver}
+                  onDrop={(e) => handleDrop(section.id, e)}
+                  className={`p-3 rounded-lg transition-all duration-200 ${
                     selectedSectionId === section.id
-                      ? "bg-gradient-to-r from-prometheus-fire/30 to-prometheus-flame/20 border border-prometheus-fire shadow-lg shadow-prometheus-fire/20 scale-105"
-                      : "bg-prometheus-smoke/40 border border-prometheus-smoke/30 hover:bg-prometheus-smoke/60 hover:border-prometheus-fire/30"
-                  }`}
+                      ? "bg-prometheus-fire/25 border border-prometheus-fire/60 shadow-md shadow-prometheus-fire/30"
+                      : "bg-prometheus-smoke/30 border border-prometheus-smoke/40 hover:bg-prometheus-smoke/50"
+                  } ${draggedSectionId === section.id ? 'opacity-50' : 'opacity-100'}`}
                 >
-                  <div className="font-medium text-sm mb-2">
-                    {sectionTypes.find((t) => t.id === section.type)?.icon}{" "}
-                    {section.name}
+                  <div className="flex items-start gap-2">
+                    <div className="cursor-grab active:cursor-grabbing mt-1 text-prometheus-fire/60 hover:text-prometheus-fire" title="Drag to reorder">
+                      ⋮⋮
+                    </div>
+                    <div className="flex-1" onClick={() => setSelectedSectionId(section.id)}>
+                      <div className="font-medium text-sm mb-2 text-prometheus-fire-light">
+                        {sectionTypes.find((t) => t.id === section.type)?.icon}{" "}
+                        {section.name}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex gap-1 text-xs">
+                  <div className="flex gap-1 text-xs mt-2">
                     <Button
                       variant="ghost"
                       size="sm"
@@ -511,10 +548,10 @@ export default function Index() {
         )}
 
         {/* Center - Canvas */}
-        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-prometheus-night via-prometheus-night to-prometheus-smoke/30 relative">
+        <div className="flex-1 overflow-y-auto bg-prometheus-night relative">
           {/* Subtle glow background */}
-          <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-prometheus-fire rounded-full blur-3xl" />
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-80 h-80 bg-prometheus-fire rounded-full blur-3xl" />
           </div>
           <div ref={canvasRef} className="max-w-6xl mx-auto relative z-10">
             {showPreview ? (
@@ -534,15 +571,12 @@ export default function Index() {
                   <div
                     key={section.id}
                     onClick={() => setSelectedSectionId(section.id)}
-                    className={`border-2 transition-all duration-300 cursor-pointer transform ${
+                    className={`border-2 transition-all duration-200 cursor-pointer ${
                       selectedSectionId === section.id
-                        ? "border-prometheus-flame shadow-2xl shadow-prometheus-flame/60 scale-[1.01] relative"
-                        : "border-prometheus-smoke/20 hover:border-prometheus-fire/40 hover:shadow-lg hover:shadow-prometheus-fire/20"
+                        ? "border-prometheus-flame/70 shadow-lg shadow-prometheus-flame/40"
+                        : "border-prometheus-smoke/30 hover:border-prometheus-fire/50"
                     }`}
                   >
-                    {selectedSectionId === section.id && (
-                      <div className="absolute inset-0 bg-prometheus-flame/5 pointer-events-none rounded-sm" />
-                    )}
                     <SectionRenderer section={section} />
                   </div>
                 ))}
@@ -553,10 +587,14 @@ export default function Index() {
 
         {/* Right Panel - Properties */}
         {!showPreview && selectedSection && (
-          <div className="w-80 border-l border-prometheus-smoke/50 bg-gradient-to-b from-prometheus-smoke/30 to-prometheus-smoke/10 overflow-y-auto p-4">
-            <h2 className="text-lg font-semibold mb-4 bg-gradient-to-r from-prometheus-flame to-prometheus-fire bg-clip-text text-transparent">
-              Properties
-            </h2>
+          <div className="w-80 border-l border-prometheus-ember/30 bg-prometheus-smoke/10 overflow-y-auto p-4">
+            <div className="mb-4 pb-4 border-b border-prometheus-ember/30">
+              <p className="text-xs text-prometheus-smoke opacity-70 uppercase tracking-wider mb-1">Editing</p>
+              <h2 className="text-lg font-semibold text-prometheus-fire">
+                {selectedSection.name}
+              </h2>
+              <p className="text-xs text-prometheus-flame/70 mt-1">Update properties below to see changes instantly</p>
+            </div>
             <PropertyEditor
               section={selectedSection}
               onChange={(config) =>
