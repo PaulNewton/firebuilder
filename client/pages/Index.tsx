@@ -365,11 +365,14 @@ export default function Index() {
   return (
     <div className="h-screen bg-prometheus-night text-prometheus-fire-light flex flex-col">
       {/* Header */}
-      <header className="border-b border-prometheus-smoke bg-prometheus-smoke/30 px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="text-2xl font-bold bg-gradient-to-r from-prometheus-flame to-prometheus-fire bg-clip-text text-transparent">
+      <header className="border-b border-prometheus-smoke bg-gradient-to-r from-prometheus-smoke/40 via-prometheus-smoke/20 to-prometheus-smoke/40 px-6 py-4 flex items-center justify-between relative overflow-hidden">
+        <div className="flex items-center gap-3 relative z-10">
+          <div className="text-3xl font-bold bg-gradient-to-r from-prometheus-flame via-prometheus-fire to-prometheus-fire-light bg-clip-text text-transparent animate-pulse">
             🔥 Prometheus Builder
           </div>
+          <span className="text-xs text-prometheus-smoke opacity-60 px-2 py-1 rounded-full bg-prometheus-fire/10 border border-prometheus-fire/20">
+            Offline-First
+          </span>
         </div>
         <div className="flex gap-2">
           <Button
