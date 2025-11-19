@@ -782,7 +782,7 @@ function PropertyEditor({
               type="text"
               value={section.config.title}
               onChange={(e) => handleChange("title", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
             />
           </div>
           <div>
@@ -791,7 +791,7 @@ function PropertyEditor({
               type="text"
               value={section.config.subtitle}
               onChange={(e) => handleChange("subtitle", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
             />
           </div>
           <div>
@@ -816,7 +816,7 @@ function PropertyEditor({
               type="text"
               value={section.config.title}
               onChange={(e) => handleChange("title", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
             />
           </div>
           <div>
@@ -866,7 +866,7 @@ function PropertyEditor({
               type="text"
               value={section.config.title}
               onChange={(e) => handleChange("title", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
             />
           </div>
           <div>
@@ -877,7 +877,7 @@ function PropertyEditor({
               type="text"
               value={section.config.buttonText}
               onChange={(e) => handleChange("buttonText", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
             />
           </div>
           <div>
@@ -901,7 +901,7 @@ function PropertyEditor({
             <textarea
               value={section.config.content}
               onChange={(e) => handleChange("content", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
               rows={4}
             />
           </div>
@@ -911,7 +911,7 @@ function PropertyEditor({
               type="number"
               value={section.config.fontSize}
               onChange={(e) => handleChange("fontSize", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
             />
           </div>
         </>
@@ -925,7 +925,7 @@ function PropertyEditor({
               type="text"
               value={section.config.title}
               onChange={(e) => handleChange("title", e.target.value)}
-              className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+              className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 focus:bg-prometheus-smoke/60 transition-all"
             />
           </div>
           <div>
