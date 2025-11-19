@@ -427,13 +427,15 @@ export default function Index() {
       <div className="flex-1 flex overflow-hidden">
         {/* Left Panel - Sections List */}
         {!showPreview && (
-          <div className="w-64 border-r border-prometheus-smoke bg-prometheus-smoke/20 overflow-y-auto p-4 flex flex-col">
+          <div className="w-64 border-r border-prometheus-smoke/50 bg-gradient-to-b from-prometheus-smoke/30 to-prometheus-smoke/10 overflow-y-auto p-4 flex flex-col">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold">Sections</h2>
+              <h2 className="text-lg font-semibold bg-gradient-to-r from-prometheus-flame to-prometheus-fire bg-clip-text text-transparent">
+                Sections
+              </h2>
               <Button
                 size="sm"
                 onClick={() => setShowAddSection(true)}
-                className="bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night"
+                className="bg-gradient-to-r from-prometheus-fire to-prometheus-flame hover:from-prometheus-fire/90 hover:to-prometheus-flame/90 text-prometheus-night font-semibold shadow-lg shadow-prometheus-fire/30"
               >
                 <Plus className="w-4 h-4" />
               </Button>
