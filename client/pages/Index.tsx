@@ -534,12 +534,15 @@ export default function Index() {
                   <div
                     key={section.id}
                     onClick={() => setSelectedSectionId(section.id)}
-                    className={`border-2 transition-all cursor-pointer ${
+                    className={`border-2 transition-all duration-300 cursor-pointer transform ${
                       selectedSectionId === section.id
-                        ? "border-prometheus-flame shadow-lg shadow-prometheus-flame/50"
-                        : "border-prometheus-smoke/30 hover:border-prometheus-fire/50"
+                        ? "border-prometheus-flame shadow-2xl shadow-prometheus-flame/60 scale-[1.01] relative"
+                        : "border-prometheus-smoke/20 hover:border-prometheus-fire/40 hover:shadow-lg hover:shadow-prometheus-fire/20"
                     }`}
                   >
+                    {selectedSectionId === section.id && (
+                      <div className="absolute inset-0 bg-prometheus-flame/5 pointer-events-none rounded-sm" />
+                    )}
                     <SectionRenderer section={section} />
                   </div>
                 ))}
