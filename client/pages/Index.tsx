@@ -129,6 +129,7 @@ export default function Index() {
   const [showExportDialog, setShowExportDialog] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [showLLMChat, setShowLLMChat] = useState(false);
+  const [showGitHubDeploy, setShowGitHubDeploy] = useState(false);
   const canvasRef = useRef<HTMLDivElement>(null);
 
   // Load from localStorage on mount
