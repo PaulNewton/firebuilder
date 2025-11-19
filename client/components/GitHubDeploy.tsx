@@ -47,6 +47,17 @@ export default function GitHubDeploy({
   const [deployStatus, setDeployStatus] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
+  const resetSetup = () => {
+    setStep("setup");
+    setAccessToken("");
+    localStorage.removeItem("github-token");
+    setRepositories([]);
+    setSelectedRepo("");
+    setBranch("main");
+    setBranches([]);
+    setDeployStatus("");
+  };
+
   useEffect(() => {
     // Check for OAuth callback
     const params = new URLSearchParams(window.location.search);
