@@ -10,6 +10,7 @@ import {
   Eye,
   MessageCircle,
   Settings,
+  Github,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
