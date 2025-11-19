@@ -342,6 +342,23 @@ export default function Index() {
     URL.revokeObjectURL(url);
   };
 
+  const handleLLMGenerateSection = (sectionData: {
+    type: string;
+    config: Record<string, any>;
+  }) => {
+    const newSection: Section = {
+      id: Date.now().toString(),
+      type: sectionData.type as Section["type"],
+      name: `${sectionData.type.charAt(0).toUpperCase() + sectionData.type.slice(1)} Section`,
+      config: sectionData.config,
+    };
+    setPage({
+      ...page,
+      sections: [...page.sections, newSection],
+    });
+    setSelectedSectionId(newSection.id);
+  };
+
   return (
     <div className="h-screen bg-prometheus-night text-prometheus-fire-light flex flex-col">
       {/* Header */}
