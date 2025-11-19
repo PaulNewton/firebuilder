@@ -611,6 +611,14 @@ export default function Index() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* LLM Chat */}
+      <LLMChat
+        open={showLLMChat}
+        onClose={() => setShowLLMChat(false)}
+        onGenerateSection={handleLLMGenerateSection}
+        currentSectionType={selectedSection?.type}
+      />
     </div>
   );
 }
