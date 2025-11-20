@@ -123,7 +123,7 @@ export default function Index() {
   });
 
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(
-    page.sections[0]?.id || null
+    page.sections[0]?.id || null,
   );
   const [showAddSection, setShowAddSection] = useState(false);
   const [showImportDialog, setShowImportDialog] = useState(false);
@@ -210,27 +210,29 @@ export default function Index() {
     const updatedPage = {
       ...page,
       sections: page.sections.map((s) =>
-        s.id === id ? { ...s, config: { ...config } } : s
+        s.id === id ? { ...s, config: { ...config } } : s,
       ),
     };
     setPage(updatedPage);
   };
 
   const handleDragStart = (id: string, e: React.DragEvent) => {
-    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.effectAllowed = "move";
     setDraggedSectionId(id);
   };
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
+    e.dataTransfer.dropEffect = "move";
   };
 
   const handleDrop = (targetId: string, e: React.DragEvent) => {
     e.preventDefault();
     if (!draggedSectionId || draggedSectionId === targetId) return;
 
-    const draggedIndex = page.sections.findIndex((s) => s.id === draggedSectionId);
+    const draggedIndex = page.sections.findIndex(
+      (s) => s.id === draggedSectionId,
+    );
     const targetIndex = page.sections.findIndex((s) => s.id === targetId);
 
     const newSections = [...page.sections];
@@ -311,7 +313,7 @@ export default function Index() {
             <div class="icon">${item.icon}</div>
             <h3>${item.title}</h3>
             <p>${item.description}</p>
-        </div>`
+        </div>`,
           )
           .join("")}
     </div>
@@ -332,7 +334,7 @@ export default function Index() {
         ${section.config.images
           .map(
             (img: string) =>
-              `<div class="gallery-item"><img src="${img}" alt="Gallery image"></div>`
+              `<div class="gallery-item"><img src="${img}" alt="Gallery image"></div>`,
           )
           .join("")}
     </div>
@@ -480,13 +482,19 @@ export default function Index() {
                     selectedSectionId === section.id
                       ? "bg-prometheus-fire/25 border border-prometheus-fire/60 shadow-md shadow-prometheus-fire/30"
                       : "bg-prometheus-smoke/30 border border-prometheus-smoke/40 hover:bg-prometheus-smoke/50"
-                  } ${draggedSectionId === section.id ? 'opacity-50' : 'opacity-100'}`}
+                  } ${draggedSectionId === section.id ? "opacity-50" : "opacity-100"}`}
                 >
                   <div className="flex items-start gap-2">
-                    <div className="cursor-grab active:cursor-grabbing mt-1 text-prometheus-fire/60 hover:text-prometheus-fire" title="Drag to reorder">
+                    <div
+                      className="cursor-grab active:cursor-grabbing mt-1 text-prometheus-fire/60 hover:text-prometheus-fire"
+                      title="Drag to reorder"
+                    >
                       ⋮⋮
                     </div>
-                    <div className="flex-1" onClick={() => setSelectedSectionId(section.id)}>
+                    <div
+                      className="flex-1"
+                      onClick={() => setSelectedSectionId(section.id)}
+                    >
                       <div className="font-medium text-sm mb-2 text-prometheus-fire-light">
                         {sectionTypes.find((t) => t.id === section.type)?.icon}{" "}
                         {section.name}
@@ -589,11 +597,15 @@ export default function Index() {
         {!showPreview && selectedSection && (
           <div className="w-80 border-l border-prometheus-ember/30 bg-prometheus-smoke/10 overflow-y-auto p-4">
             <div className="mb-4 pb-4 border-b border-prometheus-ember/30">
-              <p className="text-xs text-prometheus-smoke opacity-70 uppercase tracking-wider mb-1">Editing</p>
+              <p className="text-xs text-prometheus-smoke opacity-70 uppercase tracking-wider mb-1">
+                Editing
+              </p>
               <h2 className="text-lg font-semibold text-prometheus-fire">
                 {selectedSection.name}
               </h2>
-              <p className="text-xs text-prometheus-flame/70 mt-1">Update properties below to see changes instantly</p>
+              <p className="text-xs text-prometheus-flame/70 mt-1">
+                Update properties below to see changes instantly
+              </p>
             </div>
             <PropertyEditor
               section={selectedSection}
@@ -728,15 +740,16 @@ function SectionRenderer({ section }: { section: Section }) {
       );
     case "cta":
       return (
-        <div className="px-8 py-16 text-center" style={{
-          backgroundColor: section.config.buttonColor || "#FF6B35",
-        }}>
+        <div
+          className="px-8 py-16 text-center"
+          style={{
+            backgroundColor: section.config.buttonColor || "#FF6B35",
+          }}
+        >
           <h2 className="text-3xl font-bold mb-6 text-white">
             {section.config.title}
           </h2>
-          <button
-            className="px-8 py-3 bg-prometheus-flame text-prometheus-night font-bold rounded-lg hover:opacity-90 transition-opacity"
-          >
+          <button className="px-8 py-3 bg-prometheus-flame text-prometheus-night font-bold rounded-lg hover:opacity-90 transition-opacity">
             {section.config.buttonText}
           </button>
         </div>
@@ -815,7 +828,9 @@ function PropertyEditor({
       {section.type === "hero" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Title
+            </label>
             <input
               type="text"
               value={section.config.title}
@@ -824,7 +839,9 @@ function PropertyEditor({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Subtitle</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Subtitle
+            </label>
             <input
               type="text"
               value={section.config.subtitle}
@@ -849,7 +866,9 @@ function PropertyEditor({
       {section.type === "features" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Title
+            </label>
             <input
               type="text"
               value={section.config.title}
@@ -899,7 +918,9 @@ function PropertyEditor({
       {section.type === "cta" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Title
+            </label>
             <input
               type="text"
               value={section.config.title}
@@ -935,7 +956,9 @@ function PropertyEditor({
       {section.type === "text" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Content</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Content
+            </label>
             <textarea
               value={section.config.content}
               onChange={(e) => handleChange("content", e.target.value)}
@@ -944,7 +967,9 @@ function PropertyEditor({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Font Size</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Font Size
+            </label>
             <input
               type="number"
               value={section.config.fontSize}
@@ -958,7 +983,9 @@ function PropertyEditor({
       {section.type === "gallery" && (
         <>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Title</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Title
+            </label>
             <input
               type="text"
               value={section.config.title}
@@ -967,7 +994,9 @@ function PropertyEditor({
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2 text-prometheus-flame">Images</label>
+            <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+              Images
+            </label>
             <div className="space-y-2">
               {section.config.images.map((img: string, i: number) => (
                 <input
