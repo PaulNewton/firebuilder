@@ -65,6 +65,18 @@ export default {
           smoke: "hsl(var(--prometheus-smoke))",
           night: "hsl(var(--prometheus-night))",
         },
+        cyan: {
+          50: "#f0f9ff",
+          100: "#e0f7ff",
+          200: "#b3ecff",
+          300: "#81e6ff",
+          400: "#4fd1e5",
+          500: "#22d3ee",
+          600: "#06b6d4",
+          700: "#0891b2",
+          800: "#0e7490",
+          900: "#164e63",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
