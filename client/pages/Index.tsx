@@ -408,7 +408,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowLLMChat(true)}
-            className="border-prometheus-flame/50 hover:bg-prometheus-flame/10"
+            className="border-cyan-500/50 hover:bg-cyan-500/10"
           >
             <MessageCircle className="w-4 h-4 mr-2" />
             AI Assistant
