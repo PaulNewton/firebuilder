@@ -245,7 +245,7 @@ export default function GitHubDeploy({
         }
       }}
     >
-      <DialogContent className="max-w-2xl bg-prometheus-smoke border-prometheus-ember/40 z-50">
+      <DialogContent className="max-w-2xl bg-slate-800 border-slate-700 z-50">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Github className="w-5 h-5" />
