@@ -403,7 +403,7 @@ export default function GitHubDeploy({
                 <Button
                   onClick={resetSetup}
                   variant="outline"
-                  className="border-prometheus-smoke/50"
+                  className="border-slate-700/50 hover:bg-slate-700/30"
                 >
                   Reset
                 </Button>
@@ -454,7 +454,7 @@ export default function GitHubDeploy({
                 <Button
                   onClick={resetSetup}
                   variant="outline"
-                  className="border-prometheus-smoke/50"
+                  className="border-slate-700/50 hover:bg-slate-700/30"
                 >
                   Reset
                 </Button>
