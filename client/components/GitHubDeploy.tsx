@@ -421,7 +421,7 @@ export default function GitHubDeploy({
                   <strong>Branch:</strong> {selectedBranch}
                 </p>
                 {deployStatus && (
-                  <p className="text-sm text-prometheus-flame">{deployStatus}</p>
+                  <p className="text-sm text-cyan-400">{deployStatus}</p>
                 )}
               </div>
 
