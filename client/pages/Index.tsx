@@ -458,7 +458,7 @@ export default function Index() {
         {!showPreview && (
           <div className="w-64 lg:w-52 border-r border-prometheus-ember/30 bg-prometheus-smoke/10 overflow-y-auto p-4 lg:pr-16 flex flex-col">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-prometheus-flame">
+              <h2 className="text-lg font-semibold text-cyan-400">
                 Sections
               </h2>
               <Button
