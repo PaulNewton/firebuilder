@@ -186,7 +186,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl h-96 bg-prometheus-smoke border-prometheus-smoke flex flex-col">
+      <DialogContent className="max-w-2xl h-96 bg-slate-800 border-slate-700 flex flex-col">
         <DialogHeader>
           <DialogTitle>AI Assistant</DialogTitle>
         </DialogHeader>
