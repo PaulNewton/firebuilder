@@ -4,9 +4,10 @@ import path from "path";
 import { createServer } from "./server";
 
 // https://vitejs.dev/config/
-// Note: Update 'base' path if deploying to a subpath (e.g., '/firebuilder/' for GitHub Pages)
+// For GitHub Pages subpath deployment, change base to '/firebuilder/'
+// For root domain deployment, change base to '/'
 export default defineConfig(({ mode }) => ({
-  base: process.env.GITHUB_PAGES ? '/firebuilder/' : '/',
+  base: '/firebuilder/',
   server: {
     host: "::",
     port: 8080,
