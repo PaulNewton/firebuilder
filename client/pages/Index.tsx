@@ -480,8 +480,8 @@ export default function Index() {
                   onDrop={(e) => handleDrop(section.id, e)}
                   className={`p-3 rounded-lg transition-all duration-200 ${
                     selectedSectionId === section.id
-                      ? "bg-prometheus-fire/25 border border-prometheus-fire/60 shadow-md shadow-prometheus-fire/30"
-                      : "bg-prometheus-smoke/30 border border-prometheus-smoke/40 hover:bg-prometheus-smoke/50"
+                      ? "bg-cyan-500/15 border border-cyan-500/50 shadow-md shadow-cyan-500/20"
+                      : "bg-slate-800/40 border border-slate-700 hover:bg-slate-800/60"
                   } ${draggedSectionId === section.id ? "opacity-50" : "opacity-100"}`}
                 >
                   <div className="flex items-start gap-2">
