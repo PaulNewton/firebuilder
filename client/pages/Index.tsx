@@ -464,7 +464,7 @@ export default function Index() {
               <Button
                 size="sm"
                 onClick={() => setShowAddSection(true)}
-                className="bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night font-semibold"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold"
               >
                 <Plus className="w-4 h-4" />
               </Button>
