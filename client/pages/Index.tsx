@@ -595,15 +595,15 @@ export default function Index() {
 
         {/* Right Panel - Properties */}
         {!showPreview && selectedSection && (
-          <div className="w-80 border-l border-prometheus-ember/30 bg-prometheus-smoke/10 overflow-y-auto p-4">
-            <div className="mb-4 pb-4 border-b border-prometheus-ember/30">
-              <p className="text-xs text-prometheus-smoke opacity-70 uppercase tracking-wider mb-1">
+          <div className="w-80 border-l border-slate-700 bg-slate-800/30 overflow-y-auto p-4">
+            <div className="mb-4 pb-4 border-b border-slate-700">
+              <p className="text-xs text-slate-400 opacity-70 uppercase tracking-wider mb-1">
                 Editing
               </p>
-              <h2 className="text-lg font-semibold text-prometheus-fire">
+              <h2 className="text-lg font-semibold text-cyan-400">
                 {selectedSection.name}
               </h2>
-              <p className="text-xs text-prometheus-flame/70 mt-1">
+              <p className="text-xs text-cyan-300/70 mt-1">
                 Update properties below to see changes instantly
               </p>
             </div>
