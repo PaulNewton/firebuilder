@@ -327,7 +327,7 @@ export default function GitHubDeploy({
                   value={accessToken}
                   onChange={(e) => setAccessToken(e.target.value)}
                   placeholder="ghp_..."
-                  className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light focus:border-prometheus-flame focus:ring-1 focus:ring-prometheus-flame/30 transition-all"
+                  className="w-full px-3 py-2 bg-slate-700/40 border border-slate-600 rounded-lg text-slate-200 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30 transition-all"
                 />
                 <p className="text-xs opacity-60 mt-2">
                   Token needs: repo scope. Keep it secure!
