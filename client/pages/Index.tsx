@@ -396,8 +396,8 @@ export default function Index() {
       {/* Header */}
       <header className="border-b border-prometheus-ember/40 bg-prometheus-smoke/15 px-6 py-4 flex items-center justify-between relative overflow-hidden">
         <div className="flex items-center gap-3 relative z-10">
-          <div className="text-3xl font-bold bg-gradient-to-r from-prometheus-fire to-prometheus-flame bg-clip-text text-transparent">
-            🔥 Prometheus Builder
+          <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+            <p>✨ FireBuilder</p>
           </div>
           <span className="text-xs text-prometheus-fire-light opacity-70 px-2 py-1 rounded-full bg-prometheus-fire/20 border border-prometheus-fire/40">
             Offline-First
