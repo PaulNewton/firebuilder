@@ -556,10 +556,10 @@ export default function Index() {
         )}
 
         {/* Center - Canvas */}
-        <div className="flex-1 overflow-y-auto bg-prometheus-night relative">
+        <div className="flex-1 overflow-y-auto bg-slate-900 relative">
           {/* Subtle glow background */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-80 h-80 bg-prometheus-fire rounded-full blur-3xl" />
+            <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-80 h-80 bg-cyan-500 rounded-full blur-3xl" />
           </div>
           <div ref={canvasRef} className="max-w-6xl mx-auto relative z-10">
             {showPreview ? (
