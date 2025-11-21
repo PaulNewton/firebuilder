@@ -297,7 +297,7 @@ export default function GitHubDeploy({
                 <div className="space-y-2">
                   <Button
                     onClick={() => setStep("auth")}
-                    className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night font-semibold"
+                    className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold"
                   >
                     <Github className="w-4 h-4 mr-2" />
                     Continue with Token
