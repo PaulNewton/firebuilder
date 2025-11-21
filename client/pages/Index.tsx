@@ -495,7 +495,7 @@ export default function Index() {
                       className="flex-1"
                       onClick={() => setSelectedSectionId(section.id)}
                     >
-                      <div className="font-medium text-sm mb-2 text-prometheus-fire-light">
+                      <div className="font-medium text-sm mb-2 text-cyan-200">
                         {sectionTypes.find((t) => t.id === section.type)?.icon}{" "}
                         {section.name}
                       </div>
