@@ -200,7 +200,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
                 onChange={(e) =>
                   setProvider(e.target.value as "openai" | "anthropic")
                 }
-                className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+                className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-slate-200"
               >
                 <option value="openai">OpenAI (GPT)</option>
                 <option value="anthropic">Anthropic (Claude)</option>
@@ -219,7 +219,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
                 placeholder={
                   provider === "openai" ? "sk-..." : "sk-ant-..."
                 }
-                className="w-full px-3 py-2 bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg text-prometheus-fire-light"
+                className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-slate-200"
               />
               <p className="text-xs opacity-60 mt-2">
                 {provider === "openai"
