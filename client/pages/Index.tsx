@@ -417,7 +417,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowPreview(!showPreview)}
-            className="border-prometheus-fire/30 hover:bg-prometheus-fire/10"
+            className="border-cyan-500/30 hover:bg-cyan-500/10"
           >
             <Eye className="w-4 h-4 mr-2" />
             {showPreview ? "Editor" : "Preview"}
@@ -426,7 +426,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowExportDialog(true)}
-            className="border-prometheus-fire/30 hover:bg-prometheus-fire/10"
+            className="border-cyan-500/30 hover:bg-cyan-500/10"
           >
             <Download className="w-4 h-4 mr-2" />
             Export
@@ -435,7 +435,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowImportDialog(true)}
-            className="border-prometheus-fire/30 hover:bg-prometheus-fire/10"
+            className="border-cyan-500/30 hover:bg-cyan-500/10"
           >
             <Upload className="w-4 h-4 mr-2" />
             Import
@@ -444,7 +444,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowGitHubDeploy(true)}
-            className="border-prometheus-fire/30 hover:bg-prometheus-fire/10"
+            className="border-cyan-500/30 hover:bg-cyan-500/10"
           >
             <Github className="w-4 h-4 mr-2" />
             Deploy
