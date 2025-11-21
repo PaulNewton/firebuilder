@@ -360,9 +360,9 @@ export default function GitHubDeploy({
                     <button
                       key={repo.full_name}
                       onClick={() => handleRepoSelect(repo.full_name)}
-                      className={`w-full text-left px-4 py-3 border-b border-prometheus-smoke/30 hover:bg-prometheus-fire/10 transition-colors ${
+                      className={`w-full text-left px-4 py-3 border-b border-slate-700/30 hover:bg-cyan-500/10 transition-colors ${
                         selectedRepo === repo.full_name
-                          ? "bg-prometheus-fire/20 border-l-2 border-l-prometheus-fire"
+                          ? "bg-cyan-500/20 border-l-2 border-l-cyan-500"
                           : ""
                       }`}
                     >
