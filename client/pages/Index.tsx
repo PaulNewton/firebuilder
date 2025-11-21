@@ -628,7 +628,7 @@ export default function Index() {
               <button
                 key={type.id}
                 onClick={() => addSection(type.id)}
-                className="p-4 rounded-lg bg-prometheus-smoke/50 hover:bg-prometheus-fire/20 border border-prometheus-smoke hover:border-prometheus-fire transition-all text-left"
+                className="p-4 rounded-lg bg-slate-800/50 hover:bg-cyan-500/20 border border-slate-700 hover:border-cyan-500 transition-all text-left"
               >
                 <div className="text-2xl mb-2">{type.icon}</div>
                 <div className="font-semibold text-sm">{type.name}</div>
