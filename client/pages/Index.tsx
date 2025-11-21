@@ -619,7 +619,7 @@ export default function Index() {
 
       {/* Add Section Dialog */}
       <Dialog open={showAddSection} onOpenChange={setShowAddSection}>
-        <DialogContent className="bg-prometheus-smoke border-prometheus-smoke">
+        <DialogContent className="bg-slate-800 border-slate-700">
           <DialogHeader>
             <DialogTitle>Add Section</DialogTitle>
           </DialogHeader>
@@ -641,7 +641,7 @@ export default function Index() {
 
       {/* Import Dialog */}
       <Dialog open={showImportDialog} onOpenChange={setShowImportDialog}>
-        <DialogContent className="bg-prometheus-smoke border-prometheus-smoke">
+        <DialogContent className="bg-slate-800 border-slate-700">
           <DialogHeader>
             <DialogTitle>Import Page</DialogTitle>
           </DialogHeader>
@@ -664,7 +664,7 @@ export default function Index() {
 
       {/* Export Dialog */}
       <Dialog open={showExportDialog} onOpenChange={setShowExportDialog}>
-        <DialogContent className="bg-prometheus-smoke border-prometheus-smoke">
+        <DialogContent className="bg-slate-800 border-slate-700">
           <DialogHeader>
             <DialogTitle>Export Page</DialogTitle>
           </DialogHeader>
