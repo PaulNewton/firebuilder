@@ -394,7 +394,7 @@ export default function Index() {
   return (
     <div className="h-screen bg-prometheus-night text-prometheus-fire-light flex flex-col">
       {/* Header */}
-      <header className="border-b border-prometheus-ember/40 bg-prometheus-smoke/15 px-6 py-4 flex items-center justify-between relative overflow-hidden">
+      <header className="border-b border-slate-700/50 bg-slate-800/50 px-6 py-4 flex items-center justify-between relative overflow-hidden">
         <div className="flex items-center gap-3 relative z-10">
           <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
             <p>✨ FireBuilder</p>
