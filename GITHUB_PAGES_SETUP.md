@@ -76,10 +76,10 @@ jobs:
         with:
           node-version: 18
           cache: "pnpm"
-      
+
       - run: pnpm install
       - run: pnpm build
-      
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -89,6 +89,7 @@ jobs:
 ```
 
 Then commit and push:
+
 ```bash
 git add .github/workflows/deploy.yml
 git commit -m "Add GitHub Pages deployment workflow"
@@ -98,6 +99,7 @@ git push origin main
 ## Step 5: Access Your App
 
 After deployment completes, visit:
+
 ```
 https://paulnewton.github.io/firebuilder/
 ```
@@ -111,9 +113,10 @@ This is already handled! The app uses React Router's `basename` property configu
 ### Static assets returning 404
 
 Ensure the `base` property in `vite.config.ts` is set to your subpath:
+
 ```typescript
 export default defineConfig({
-  base: '/firebuilder/',
+  base: "/firebuilder/",
   // ... rest of config
 });
 ```
@@ -142,6 +145,7 @@ Then visit `http://localhost:8080/firebuilder/`
 ## Production Environment
 
 Your deployed app includes:
+
 - Offline-first LocalStorage support
 - Full visual page builder functionality
 - AI assistant (requires API keys configured)

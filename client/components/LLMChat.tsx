@@ -30,14 +30,14 @@ export default function LLMChat({
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [apiKey, setApiKey] = useState(() =>
-    localStorage.getItem("llm-api-key") || ""
+  const [apiKey, setApiKey] = useState(
+    () => localStorage.getItem("llm-api-key") || "",
   );
   const [showApiSetup, setShowApiSetup] = useState(!apiKey);
   const [provider, setProvider] = useState<"openai" | "anthropic">(
     () =>
       (localStorage.getItem("llm-provider") as "openai" | "anthropic") ||
-      "openai"
+      "openai",
   );
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -135,8 +135,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
 
       if (provider === "openai") {
         const data = await response.json();
-        assistantContent =
-          data.choices[0]?.message?.content || "No response";
+        assistantContent = data.choices[0]?.message?.content || "No response";
       } else {
         const data = await response.json();
         assistantContent = data.content[0]?.text || "No response";
@@ -208,17 +207,13 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">
-                {provider === "openai"
-                  ? "OpenAI API Key"
-                  : "Anthropic API Key"}
+                {provider === "openai" ? "OpenAI API Key" : "Anthropic API Key"}
               </label>
               <input
                 type="password"
                 value={apiKey}
                 onChange={(e) => setApiKey(e.target.value)}
-                placeholder={
-                  provider === "openai" ? "sk-..." : "sk-ant-..."
-                }
+                placeholder={provider === "openai" ? "sk-..." : "sk-ant-..."}
                 className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-slate-200"
               />
               <p className="text-xs opacity-60 mt-2">
@@ -299,7 +294,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
                               const selected = window.getSelection();
                               if (selected && selected.toString()) {
                                 setInput(
-                                  `Rewrite this: "${selected.toString()}"`
+                                  `Rewrite this: "${selected.toString()}"`,
                                 );
                               }
                             }}

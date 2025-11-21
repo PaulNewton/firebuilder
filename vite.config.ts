@@ -7,7 +7,7 @@ import { createServer } from "./server";
 // For GitHub Pages subpath deployment, change base to '/firebuilder/'
 // For root domain deployment, change base to '/'
 export default defineConfig(({ mode }) => ({
-  base: '/firebuilder/',
+  base: "/firebuilder/",
   server: {
     host: "::",
     port: 8080,

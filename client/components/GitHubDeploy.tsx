@@ -34,10 +34,10 @@ export default function GitHubDeploy({
   onDeploy,
 }: GitHubDeployProps) {
   const [step, setStep] = useState<"setup" | "auth" | "repo-select" | "deploy">(
-    "setup"
+    "setup",
   );
-  const [accessToken, setAccessToken] = useState(() =>
-    localStorage.getItem("github-token") || ""
+  const [accessToken, setAccessToken] = useState(
+    () => localStorage.getItem("github-token") || "",
   );
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [selectedRepo, setSelectedRepo] = useState("");
@@ -128,7 +128,7 @@ export default function GitHubDeploy({
 
       const repos: Repository[] = await response.json();
       setRepositories(
-        repos.filter((r) => !r.name.startsWith(".")).slice(0, 20)
+        repos.filter((r) => !r.name.startsWith(".")).slice(0, 20),
       );
     } catch (error) {
       alert("Error fetching repositories. Check your token and try again.");
@@ -150,7 +150,7 @@ export default function GitHubDeploy({
             Authorization: `Bearer ${accessToken}`,
             Accept: "application/vnd.github.v3+json",
           },
-        }
+        },
       );
 
       if (!response.ok) {
@@ -189,10 +189,10 @@ export default function GitHubDeploy({
       const url = URL.createObjectURL(blob);
 
       setDeployStatus(
-        "✓ HTML generated! In production, this would push to GitHub."
+        "✓ HTML generated! In production, this would push to GitHub.",
       );
       setDeployStatus(
-        "To complete deployment: 1. Create a GitHub Actions workflow, or 2. Use Git CLI to push files"
+        "To complete deployment: 1. Create a GitHub Actions workflow, or 2. Use Git CLI to push files",
       );
 
       const a = document.createElement("a");
@@ -204,7 +204,7 @@ export default function GitHubDeploy({
       onDeploy?.(selectedRepo, selectedBranch);
     } catch (error) {
       setDeployStatus(
-        `Error: ${error instanceof Error ? error.message : "Unknown error"}`
+        `Error: ${error instanceof Error ? error.message : "Unknown error"}`,
       );
     } finally {
       setLoading(false);
@@ -251,7 +251,9 @@ export default function GitHubDeploy({
             <Github className="w-5 h-5" />
             Deploy to GitHub Pages
           </DialogTitle>
-          <DialogDescription>Push your static site to GitHub Pages</DialogDescription>
+          <DialogDescription>
+            Push your static site to GitHub Pages
+          </DialogDescription>
           {step !== "setup" && (
             <Button
               onClick={resetSetup}
@@ -366,7 +368,9 @@ export default function GitHubDeploy({
                           : ""
                       }`}
                     >
-                      <div className="font-medium text-sm">{repo.full_name}</div>
+                      <div className="font-medium text-sm">
+                        {repo.full_name}
+                      </div>
                       <div className="text-xs opacity-60">{repo.html_url}</div>
                     </button>
                   ))}
