@@ -381,7 +381,7 @@ export default function GitHubDeploy({
                   <select
                     value={selectedBranch}
                     onChange={(e) => setBranch(e.target.value)}
-                    className="w-full px-3 py-2 bg-prometheus-smoke/40 border border-prometheus-smoke/50 rounded-lg text-prometheus-fire-light"
+                    className="w-full px-3 py-2 bg-slate-700/40 border border-slate-600 rounded-lg text-slate-200"
                   >
                     {branches.map((branch) => (
                       <option key={branch} value={branch}>
