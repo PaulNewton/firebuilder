@@ -486,7 +486,7 @@ export default function Index() {
                 >
                   <div className="flex items-start gap-2">
                     <div
-                      className="cursor-grab active:cursor-grabbing mt-1 text-prometheus-fire/60 hover:text-prometheus-fire"
+                      className="cursor-grab active:cursor-grabbing mt-1 text-cyan-500/60 hover:text-cyan-400"
                       title="Drag to reorder"
                     >
                       ⋮⋮
