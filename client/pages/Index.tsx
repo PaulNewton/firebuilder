@@ -456,7 +456,7 @@ export default function Index() {
       <div className="flex-1 flex overflow-hidden">
         {/* Left Panel - Sections List */}
         {!showPreview && (
-          <div className="w-64 lg:w-52 border-r border-prometheus-ember/30 bg-prometheus-smoke/10 overflow-y-auto p-4 lg:pr-16 flex flex-col">
+          <div className="w-64 lg:w-52 border-r border-slate-700 bg-slate-800/20 overflow-y-auto p-4 lg:pr-16 flex flex-col">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-cyan-400">
                 Sections
