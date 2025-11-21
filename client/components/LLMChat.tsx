@@ -230,7 +230,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
             <Button
               onClick={saveApiKey}
               disabled={!apiKey}
-              className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-prometheus-night"
+              className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
             >
               Save & Continue
             </Button>
