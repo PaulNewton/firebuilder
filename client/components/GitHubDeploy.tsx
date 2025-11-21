@@ -267,7 +267,7 @@ export default function GitHubDeploy({
         <div className="space-y-6 max-h-96 overflow-y-auto">
           {step === "setup" && (
             <div className="space-y-4">
-              <div className="bg-prometheus-fire/15 border border-prometheus-fire/40 rounded-lg p-4">
+              <div className="bg-cyan-500/15 border border-cyan-500/40 rounded-lg p-4">
                 <h3 className="font-semibold mb-3">How It Works</h3>
                 <ol className="space-y-2 text-sm opacity-90">
                   <li>
