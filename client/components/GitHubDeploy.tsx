@@ -319,7 +319,7 @@ export default function GitHubDeploy({
           {step === "auth" && (
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+                <label className="block text-sm font-medium mb-2 text-cyan-400">
                   GitHub Personal Access Token
                 </label>
                 <input
@@ -375,7 +375,7 @@ export default function GitHubDeploy({
 
               {selectedRepo && branches.length > 0 && (
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-prometheus-flame">
+                  <label className="block text-sm font-medium mb-2 text-cyan-400">
                     Target Branch
                   </label>
                   <select
