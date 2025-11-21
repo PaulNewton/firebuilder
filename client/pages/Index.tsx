@@ -399,7 +399,7 @@ export default function Index() {
           <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
             <p>✨ FireBuilder</p>
           </div>
-          <span className="text-xs text-prometheus-fire-light opacity-70 px-2 py-1 rounded-full bg-prometheus-fire/20 border border-prometheus-fire/40">
+          <span className="text-xs text-cyan-200 opacity-70 px-2 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40">
             Offline-First
           </span>
         </div>
