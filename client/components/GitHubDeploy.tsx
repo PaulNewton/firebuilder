@@ -413,7 +413,7 @@ export default function GitHubDeploy({
 
           {step === "deploy" && (
             <div className="space-y-4">
-              <div className="bg-prometheus-smoke/50 border border-prometheus-smoke rounded-lg p-4">
+              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
                 <p className="text-sm mb-3">
                   <strong>Repository:</strong> {selectedRepo}
                 </p>
