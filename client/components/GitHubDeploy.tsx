@@ -428,7 +428,7 @@ export default function GitHubDeploy({
               <Button
                 onClick={deployToGitHub}
                 disabled={loading}
-                className="w-full bg-prometheus-flame hover:bg-prometheus-flame/90 text-prometheus-night font-semibold"
+                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold"
               >
                 {loading ? (
                   <>
