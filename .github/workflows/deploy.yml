@@ -1,11 +1,12 @@
 name: Deploy to GitHub Pages
+permissions:
+  id-token: write
+  contents: write
 
 on:
   push:
     branches: [main]
-permissions:
-  id-token: write
-  contents: read
+
 
 jobs:
   build-and-deploy:
