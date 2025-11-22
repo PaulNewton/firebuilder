@@ -556,10 +556,11 @@ export default function Index() {
         )}
 
         {/* Center - Canvas */}
-        <div className="flex-1 overflow-y-auto bg-slate-900 relative">
-          {/* Subtle glow background */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-80 h-80 bg-cyan-500 rounded-full blur-3xl" />
+        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative">
+          {/* Fire-like glow background */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-prometheus-fire to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-t from-prometheus-flame to-transparent rounded-full blur-3xl opacity-60" />
           </div>
           <div ref={canvasRef} className="max-w-6xl mx-auto relative z-10">
             {showPreview ? (
