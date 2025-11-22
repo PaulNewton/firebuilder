@@ -642,7 +642,7 @@ export default function Index() {
 
       {/* Import Dialog */}
       <Dialog open={showImportDialog} onOpenChange={setShowImportDialog}>
-        <DialogContent className="bg-slate-800 border-slate-700">
+        <DialogContent className="bg-slate-800 border-prometheus-fire/40">
           <DialogHeader>
             <DialogTitle>Import Page</DialogTitle>
           </DialogHeader>
