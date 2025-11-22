@@ -480,13 +480,13 @@ export default function Index() {
                   onDrop={(e) => handleDrop(section.id, e)}
                   className={`p-3 rounded-lg transition-all duration-200 ${
                     selectedSectionId === section.id
-                      ? "bg-cyan-500/15 border border-cyan-500/50 shadow-md shadow-cyan-500/20"
+                      ? "bg-prometheus-fire/15 border border-prometheus-fire/50 shadow-md shadow-prometheus-fire/20"
                       : "bg-slate-800/40 border border-slate-700 hover:bg-slate-800/60"
                   } ${draggedSectionId === section.id ? "opacity-50" : "opacity-100"}`}
                 >
                   <div className="flex items-start gap-2">
                     <div
-                      className="cursor-grab active:cursor-grabbing mt-1 text-cyan-500/60 hover:text-cyan-400"
+                      className="cursor-grab active:cursor-grabbing mt-1 text-prometheus-fire/60 hover:text-prometheus-fire"
                       title="Drag to reorder"
                     >
                       ⋮⋮
@@ -495,7 +495,7 @@ export default function Index() {
                       className="flex-1"
                       onClick={() => setSelectedSectionId(section.id)}
                     >
-                      <div className="font-medium text-sm mb-2 text-cyan-200">
+                      <div className="font-medium text-sm mb-2 text-prometheus-fire-light">
                         {sectionTypes.find((t) => t.id === section.type)?.icon}{" "}
                         {section.name}
                       </div>
