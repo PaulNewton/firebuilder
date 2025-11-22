@@ -245,7 +245,7 @@ export default function GitHubDeploy({
         }
       }}
     >
-      <DialogContent className="max-w-2xl bg-slate-800 border-slate-700 z-50">
+      <DialogContent className="max-w-2xl bg-slate-800 border-prometheus-fire/40 z-50">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Github className="w-5 h-5" />
@@ -269,7 +269,7 @@ export default function GitHubDeploy({
         <div className="space-y-6 max-h-96 overflow-y-auto">
           {step === "setup" && (
             <div className="space-y-4">
-              <div className="bg-cyan-500/15 border border-cyan-500/40 rounded-lg p-4">
+              <div className="bg-prometheus-fire/15 border border-prometheus-fire/40 rounded-lg p-4">
                 <h3 className="font-semibold mb-3">How It Works</h3>
                 <ol className="space-y-2 text-sm opacity-90">
                   <li>
@@ -299,7 +299,7 @@ export default function GitHubDeploy({
                 <div className="space-y-2">
                   <Button
                     onClick={() => setStep("auth")}
-                    className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold"
+                    className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-white font-semibold"
                   >
                     <Github className="w-4 h-4 mr-2" />
                     Continue with Token
@@ -321,7 +321,7 @@ export default function GitHubDeploy({
           {step === "auth" && (
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2 text-cyan-400">
+                <label className="block text-sm font-medium mb-2 text-prometheus-fire-light">
                   GitHub Personal Access Token
                 </label>
                 <input
@@ -329,7 +329,7 @@ export default function GitHubDeploy({
                   value={accessToken}
                   onChange={(e) => setAccessToken(e.target.value)}
                   placeholder="ghp_..."
-                  className="w-full px-3 py-2 bg-slate-700/40 border border-slate-600 rounded-lg text-slate-200 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30 transition-all"
+                  className="w-full px-3 py-2 bg-slate-700/40 border border-slate-600 rounded-lg text-slate-200 focus:border-prometheus-fire/50 focus:ring-1 focus:ring-prometheus-fire/30 transition-all"
                 />
                 <p className="text-xs opacity-60 mt-2">
                   Token needs: repo scope. Keep it secure!
@@ -362,9 +362,9 @@ export default function GitHubDeploy({
                     <button
                       key={repo.full_name}
                       onClick={() => handleRepoSelect(repo.full_name)}
-                      className={`w-full text-left px-4 py-3 border-b border-slate-700/30 hover:bg-cyan-500/10 transition-colors ${
+                      className={`w-full text-left px-4 py-3 border-b border-slate-700/30 hover:bg-prometheus-fire/10 transition-colors ${
                         selectedRepo === repo.full_name
-                          ? "bg-cyan-500/20 border-l-2 border-l-cyan-500"
+                          ? "bg-prometheus-fire/20 border-l-2 border-l-prometheus-fire"
                           : ""
                       }`}
                     >
@@ -379,7 +379,7 @@ export default function GitHubDeploy({
 
               {selectedRepo && branches.length > 0 && (
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-cyan-400">
+                  <label className="block text-sm font-medium mb-2 text-prometheus-fire-light">
                     Target Branch
                   </label>
                   <select
@@ -425,14 +425,14 @@ export default function GitHubDeploy({
                   <strong>Branch:</strong> {selectedBranch}
                 </p>
                 {deployStatus && (
-                  <p className="text-sm text-cyan-400">{deployStatus}</p>
+                  <p className="text-sm text-prometheus-fire-light">{deployStatus}</p>
                 )}
               </div>
 
               <Button
                 onClick={deployToGitHub}
                 disabled={loading}
-                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold"
+                className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-white font-semibold"
               >
                 {loading ? (
                   <>
