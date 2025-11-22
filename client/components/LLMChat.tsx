@@ -185,7 +185,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl h-96 bg-slate-800 border-slate-700 flex flex-col">
+      <DialogContent className="max-w-2xl h-96 bg-slate-800 border-prometheus-fire/40 flex flex-col">
         <DialogHeader>
           <DialogTitle>AI Assistant</DialogTitle>
         </DialogHeader>
@@ -225,7 +225,7 @@ For other questions, provide helpful guidance. Keep responses concise.\n\n${inpu
             <Button
               onClick={saveApiKey}
               disabled={!apiKey}
-              className="w-full bg-cyan-500 hover:bg-cyan-600 text-white"
+              className="w-full bg-prometheus-fire hover:bg-prometheus-fire/90 text-white"
             >
               Save & Continue
             </Button>
