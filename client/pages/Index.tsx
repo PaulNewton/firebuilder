@@ -396,8 +396,8 @@ export default function Index() {
       {/* Header */}
       <header className="border-b border-slate-700/50 bg-slate-800/50 px-6 py-4 flex items-center justify-between relative overflow-hidden">
         <div className="flex items-center gap-3 relative z-10">
-          <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
-            <p>✨ FireBuilder</p>
+          <div className="text-3xl font-bold bg-gradient-to-r from-prometheus-fire to-prometheus-flame bg-clip-text text-transparent">
+            🔥 Prometheus Builder
           </div>
           <span className="text-xs text-cyan-200 opacity-70 px-2 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40">
             Offline-First
@@ -458,7 +458,9 @@ export default function Index() {
         {!showPreview && (
           <div className="w-64 lg:w-52 border-r border-slate-700 bg-slate-800/20 overflow-y-auto p-4 lg:pr-16 flex flex-col">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-cyan-400">Sections</h2>
+              <h2 className="text-lg font-semibold text-cyan-400">
+                Sections
+              </h2>
               <Button
                 size="sm"
                 onClick={() => setShowAddSection(true)}
