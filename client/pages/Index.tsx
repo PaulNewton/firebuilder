@@ -665,7 +665,7 @@ export default function Index() {
 
       {/* Export Dialog */}
       <Dialog open={showExportDialog} onOpenChange={setShowExportDialog}>
-        <DialogContent className="bg-slate-800 border-slate-700">
+        <DialogContent className="bg-slate-800 border-prometheus-fire/40">
           <DialogHeader>
             <DialogTitle>Export Page</DialogTitle>
           </DialogHeader>
