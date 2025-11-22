@@ -582,8 +582,8 @@ export default function Index() {
                     onClick={() => setSelectedSectionId(section.id)}
                     className={`border-2 transition-all duration-200 cursor-pointer ${
                       selectedSectionId === section.id
-                        ? "border-cyan-500/70 shadow-lg shadow-cyan-500/40"
-                        : "border-slate-700/50 hover:border-cyan-500/50"
+                        ? "border-prometheus-fire/70 shadow-lg shadow-prometheus-fire/40"
+                        : "border-slate-700/50 hover:border-prometheus-fire/50"
                     }`}
                   >
                     <SectionRenderer section={section} />
