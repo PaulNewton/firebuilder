@@ -394,12 +394,12 @@ export default function Index() {
   return (
     <div className="h-screen bg-prometheus-night text-prometheus-fire-light flex flex-col">
       {/* Header */}
-      <header className="border-b border-slate-700/50 bg-slate-800/50 px-6 py-4 flex items-center justify-between relative overflow-hidden">
+      <header className="border-b border-prometheus-fire/40 bg-gradient-to-r from-slate-800/60 to-slate-900/40 px-6 py-4 flex items-center justify-between relative overflow-hidden">
         <div className="flex items-center gap-3 relative z-10">
           <div className="text-3xl font-bold bg-gradient-to-r from-prometheus-fire to-prometheus-flame bg-clip-text text-transparent">
-            🔥 Prometheus Builder
+            🔥 FireBuilder
           </div>
-          <span className="text-xs text-cyan-200 opacity-70 px-2 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40">
+          <span className="text-xs text-orange-200 opacity-70 px-2 py-1 rounded-full bg-prometheus-fire/20 border border-prometheus-fire/40">
             Offline-First
           </span>
         </div>
@@ -408,7 +408,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowLLMChat(true)}
-            className="border-cyan-500/50 hover:bg-cyan-500/10"
+            className="border-prometheus-fire/50 hover:bg-prometheus-fire/10 text-prometheus-fire-light"
           >
             <MessageCircle className="w-4 h-4 mr-2" />
             AI Assistant
@@ -417,7 +417,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowPreview(!showPreview)}
-            className="border-cyan-500/30 hover:bg-cyan-500/10"
+            className="border-prometheus-fire/40 hover:bg-prometheus-fire/10 text-prometheus-fire-light"
           >
             <Eye className="w-4 h-4 mr-2" />
             {showPreview ? "Editor" : "Preview"}
@@ -426,7 +426,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowExportDialog(true)}
-            className="border-cyan-500/30 hover:bg-cyan-500/10"
+            className="border-prometheus-fire/40 hover:bg-prometheus-fire/10 text-prometheus-fire-light"
           >
             <Download className="w-4 h-4 mr-2" />
             Export
@@ -435,7 +435,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowImportDialog(true)}
-            className="border-cyan-500/30 hover:bg-cyan-500/10"
+            className="border-prometheus-fire/40 hover:bg-prometheus-fire/10 text-prometheus-fire-light"
           >
             <Upload className="w-4 h-4 mr-2" />
             Import
@@ -444,7 +444,7 @@ export default function Index() {
             variant="outline"
             size="sm"
             onClick={() => setShowGitHubDeploy(true)}
-            className="border-cyan-500/30 hover:bg-cyan-500/10"
+            className="border-prometheus-fire/40 hover:bg-prometheus-fire/10 text-prometheus-fire-light"
           >
             <Github className="w-4 h-4 mr-2" />
             Deploy
