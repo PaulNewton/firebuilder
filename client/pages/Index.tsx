@@ -620,7 +620,7 @@ export default function Index() {
 
       {/* Add Section Dialog */}
       <Dialog open={showAddSection} onOpenChange={setShowAddSection}>
-        <DialogContent className="bg-slate-800 border-slate-700">
+        <DialogContent className="bg-slate-800 border-prometheus-fire/40">
           <DialogHeader>
             <DialogTitle>Add Section</DialogTitle>
           </DialogHeader>
@@ -629,7 +629,7 @@ export default function Index() {
               <button
                 key={type.id}
                 onClick={() => addSection(type.id)}
-                className="p-4 rounded-lg bg-slate-800/50 hover:bg-cyan-500/20 border border-slate-700 hover:border-cyan-500 transition-all text-left"
+                className="p-4 rounded-lg bg-slate-800/50 hover:bg-prometheus-fire/20 border border-slate-700 hover:border-prometheus-fire transition-all text-left"
               >
                 <div className="text-2xl mb-2">{type.icon}</div>
                 <div className="font-semibold text-sm">{type.name}</div>
