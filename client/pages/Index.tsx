@@ -70,7 +70,7 @@ const defaultSectionConfigs: Record<string, Record<string, any>> = {
     images: [
       "https://upload.wikimedia.org/wikipedia/commons/3/3d/Jan_Cossiers_-_Prometeo_trayendo_el_fuego%2C_1637.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/f/ff/Fire02.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Mount_Olympus._%281878%29_-_TIMEA.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Mount_Olympus._%281878%29_-_TIMEA.jpg"
     ],
   },
 };
